@@ -1,0 +1,209 @@
+/*     SISTEMA ADMINISTRATIVO PROGRAMARDESDECERO.COM.AR    
+    por REGINA NOEMÍ MOLARES 
+    eMail: info@reginamolares.com.ar
+    JULIO 2021 
+
+    ESTILOS */
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+
+/* CUSTOM PROPERTIES */
+:root {
+  --first-color: rgb(155, 93, 229);
+  --second-color: rgb(241, 91, 181);
+  --third-color: rgb(254, 228, 64);
+  --fourth-color: rgb(0, 187, 249);
+  --fifth-color: rgb(0, 245, 212);
+  --first-alpha-color: rgba(155, 93, 229, 0.5);
+  --second-alpha-color: rgba(241, 91, 181, 0.5);
+  --third-alpha-color: rgba(254, 228, 64, 0.5);
+  --fourth-alpha-color: rgba(0, 187, 249, 0.5);
+  --fifth-alpha-color: rgba(0, 245, 212, 0.5);
+
+  --black-color: #000;
+  --black-alpha-color: rgba(0, 0, 0, 0.7);
+  --gray-light-color: #f3f3f3;
+  --gray-color: #ccc;
+  --gray-dark-color: #666;
+  --white-color: #fff;
+  --white-alpha-color: rgba(255, 255, 255, 0.5);
+
+  --font: "Ubuntu", sans-serif;
+  --header-height: 4rem;
+
+  --bg: url("../img/bg.jpg");
+  /* Picture credits: https://www.freepik.es/vectores/fondo-abstracto' Vector de Fondo abstracto creado por vector_corp - www.freepik.es */
+}
+
+/* RESET */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--black-color);
+  color: var(--first-color);
+  font-family: var(--font);
+  margin: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-attachment: fixed;
+  height: auto;
+  padding-bottom: 3rem;
+}
+
+h1,
+h2 {
+  font-weight: bolder;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  color: var(--fifth-color);
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+a {
+  color: var(--black-color);
+  transition: all 0.5s ease-out;
+}
+
+a:hover {
+  color: var(--third-color);
+  opacity: 0.75;
+  text-decoration: none;
+}
+
+/* El RESTO */
+
+.bold {
+  font-weight: bold;
+}
+
+.fa-user-plus {
+  margin-right: 1em;
+}
+
+#form-login {
+  width: 100%;
+  margin: 0 auto 0 auto;
+  background-color: var(--black-alpha-color);
+  padding: 2rem 0 2 rem 0;
+}
+
+input:not(.no-rm) {
+  margin-right: 0.2em;
+}
+
+#logomp {
+  width: 200px;
+}
+
+.no-rm {
+  margin-right: 0em;
+}
+
+.pinkborder,
+#footer-body,
+#copy,
+#form-login,
+h1,
+h2 {
+  border-radius: 10px;
+}
+
+.pinkborder,
+h1,
+h2 {
+  border-style: bold;
+  border-color: var(--second-color);
+  border-width: 3px;
+  font-weight: bolder;
+  box-shadow: 5px 5px 10px var(--third-alpha-color);
+}
+
+.pinkborder {
+  color: var(--black-color);
+  transition: all 0.7s ease-out;
+}
+
+.pinkborder:hover {
+  background-color: var(--third-color);
+  border-color: var(--fifth-color);
+  color: var(--black-color);
+}
+
+.redviolet-rv19 {
+  background-color: var(--second-color);
+}
+
+.tealblue-bg18 {
+  background-color: var(--fifth-color);
+}
+
+/* FOOTER */
+
+footer {
+  color: var(--black-color);
+}
+#copy {
+  background-color: var(--first-color);
+  padding: 0.5rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+#footer-body {
+  background-color: var(--first-alpha-color);
+  color: var(--white-alpha-color);
+  font-size: small;
+  padding: 3rem;
+}
+
+/* CARDS */
+
+.card {
+  background-color: var(--black-alpha-color);
+  color: var(--black-color);
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--third-color);
+}
+
+.card-title {
+  background-color: var(--third-alpha-color);
+  padding: 0.5rem;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: all 0.5s ease-out;
+}
+
+.card-title:hover {
+  background-color: var(--first-alpha-color);
+  color: var(--white-color);
+}
+
+.card-title a:link {
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  color: var(--white-color) !important;
+}
+
+td, .lightc {
+color: var(--white-color);
+}
+
+tr {font-size: small;}
+
+.badge {color: var(--black-color)}
+
+.subt {line-height: 1rem;}
