@@ -7,10 +7,93 @@
     PÁGINA DE ALTA DE DOCENTES 
  -->
 
-<?php include_once 'header.php'; ?>
+<?php include_once 'header.php';
+session_start();
+include_once "includes/connect.php";
+include_once "includes/functions.php";
+
+/* Cuenta los hooman en la db */
+$find_last_hooman = mysqli_query($conexion, "SELECT MAX(id) as ids FROM (hooman)");
+$last_hooman = mysqli_fetch_assoc($find_last_hooman);
+$next_hooman = $last_hooman['ids'] + 1;
+
+if (isset($_POST['add_teacher'])) {
+  /* $foto = subir_foto($fotop,"../img/docentes/", $_FILES['userfile']['size'],$_FILES['userfile']['name']); */
+
+  $nombre = asegurar($_POST['name']);
+  $apellido = asegurar($_POST['surname']);
+  $celular = asegurar($_POST['cellphone']);
+  $email1 = asegurar($_POST['email']);
+  $email2 = asegurar($_POST['alt_email']);
+  $username = asegurar($_POST['username']);
+  $clave = asegurar($_POST['password']);
+  $webmail = asegurar($_POST['webmail']);
+  $mercadopago = asegurar($_POST['mercadopago']);
+  $cbu_nro = asegurar($_POST['cbunro']);
+  $cbu_alias = asegurar($_POST['cbualias']);
+  $cafecito = asegurar($_POST['cafecito']);
+  $cv = asegurar($_POST['cv']);
+  $portfolio = asegurar($_POST['portfolio']);
+  $github = asegurar($_POST['github']);
+  $linkedin = asegurar($_POST['linkedin']);
+  $youtube = asegurar($_POST['youtube']);
+
+
+
+  $query1 = "INSERT INTO hooman (
+                          apellido, 
+                          nombre, 
+                          celular, 
+                          email1, 
+                          email2, 
+                          username, 
+                          clave, 
+                          rol
+                          ) VALUES (
+                          '$apellido', 
+                          '$nombre', 
+                          '$celular', 
+                          '$email1', 
+                          '$email2', 
+                          '$username', 
+                          '$clave', 
+                          3
+                          );";
+  $query2 = "INSERT INTO docente (
+                          id,
+                          webmail, 
+                          mercadopago, 
+                          cbu_nro, 
+                          cbu_alias, 
+                          cafecito, 
+                          cv, 
+                          portfolio, 
+                          github, 
+                          linkedin, 
+                          youtube
+                          ) VALUES (
+                          '$next_hooman',
+                          '$webmail', 
+                          '$mercadopago', 
+                          '$cbu_nro', 
+                          '$cbu_alias', 
+                          '$cafecito', 
+                          '$cv', 
+                          '$portfolio', 
+                          '$github', 
+                          '$linkedin', 
+                          '$youtube'
+                          );";
+  mysqli_query($conexion, $query1);
+  mysqli_query($conexion, $query2);
+
+  # ENVÍO UN MENSAJE PARA MOSTRAR UN ALERTA DE ESTADO A LA PÁGINA INICIAL
+  header("Location: lista_docente.php");
+}
+?>
 
 <div class="container">
-  <form>
+  <form action="alta_docente.php" method="POST" enctype="multipart/form-data">
     <div class="container-fluid w-100 orange text-center p-2">
       <h2 class="mt-3">Alta de Docentes</h2>
       <div class="form-group mt-5">
@@ -69,9 +152,9 @@
         </div>
       </div>
       <div class="text-center pt-3">
-        <button type="submit" class="btn tealblue-bg18 pinkborder w-25 mt-4"><i class="fas fa-user-plus"></i> Confirmar alta</button>
+        <button type="submit" class="btn tealblue-bg18 pinkborder w-25 mt-4" name="add_teacher"><i class="fas fa-user-plus"></i> Confirmar alta</button>
       </div>
     </div>
 </div>
 <form>
-<?php include_once 'footer.php'; ?>
+  <?php include_once 'footer.php'; ?>

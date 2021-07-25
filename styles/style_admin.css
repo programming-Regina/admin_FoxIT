@@ -86,7 +86,7 @@ a:hover {
   font-weight: bold;
 }
 
-.fa-user-plus {
+.fa-user-plus, .fa-user-edit {
   margin-right: 1em;
 }
 
